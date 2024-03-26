@@ -1,13 +1,11 @@
 import './App.css'
 import { useState } from 'react';
-import Bulb from './components/Bulb';
-import Conuter from './components/Counter';
+import Register from "./components/Register.jsx";
 
 function App() {
   return (
     <>
-      <Bulb />
-      <Conuter />
+        <Register/>
     </>
   )
 }
