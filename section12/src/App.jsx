@@ -57,12 +57,12 @@ function App() {
     const idRef = useRef(3);
 
     // 새로운 일기 추가
-    const onCreate = (createdData, emotionId, content) => {
+    const onCreate = (createdDate, emotionId, content) => {
         dispatch({
             type: "CREATE",
             data: {
                 id: idRef.current++,
-                createdData,
+                createdDate,
                 emotionId,
                 content,
             },
@@ -70,12 +70,12 @@ function App() {
     }
 
     // 기존 일기 수정
-    const onUpdate = (id, createdData, emotionId, content) => {
+    const onUpdate = (id, createdDate, emotionId, content) => {
         dispatch({
             type: "UPDATE",
             data: {
                 id,
-                createdData,
+                createdDate,
                 emotionId,
                 content,
             },
