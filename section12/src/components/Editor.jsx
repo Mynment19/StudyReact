@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "./Button";
 import "./Editor.css";
 import EmotionItem from "./EmotionItem";
@@ -43,13 +43,22 @@ const getStringedDate = (targetDate) => {
     return `${year}-${month}-${date}`
 }
 
-const Editor = ({ onSubmit }) => {
+const Editor = ({ initData, onSubmit }) => {
     const [input, setInput] = useState({
         createdDate: new Date(),
         emotionId: 3,
         content: "",
     });
     const nav = useNavigate();
+
+    useEffect(() => {
+        if (initData) {
+            setInput({
+                ...initData,
+                createdDate: new Date(Number(initData.createdDate)),
+            });
+        };
+    }, [initData]);
 
     const onChangeInput = (e) => {
         let name = e.target.name;
